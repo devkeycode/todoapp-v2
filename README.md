@@ -8,3 +8,5 @@ TODO App is an app where user can input any task that the user want to get done 
 Spliting it into 2 sections- task-input-section and tasks-display-section
 task-input-section for getting task as an input
 task-display section for displaying task list
+
+

@@ -34,3 +34,70 @@ ol {
   grid-template-columns: 1fr 1fr;
   height: 100vh;
 }
+
+/* Addtask button */
+#add-task-btn {
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 1px salmon;
+  margin-top: 50px;
+}
+
+#add-task-btn:active {
+  box-shadow: 5px 5px 5px 5px rgba(228, 120, 120, 0.5);
+}
+
+/* Task Input section */
+#task-input-section {
+  background-color: rgb(202, 184, 184);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* display: grid;
+  place-items: center; */
+}
+input {
+  display: block;
+  width: 75%;
+  margin: auto;
+}
+/* Task Display Section */
+#tasks-display-section {
+  background-color: rgb(111, 47, 172);
+  color: whitesmoke;
+  text-align: center;
+}
+
+#task-list {
+  counter-reset: task-counter 0;
+}
+.task-todo {
+  width: 95%;
+  text-align: left;
+  box-shadow: -3px 3px 5px rgba(219, 202, 202, 0.5);
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+  padding-left: 20px;
+  color: rgb(233, 227, 230);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-todo::before {
+  content: counter(task-counter);
+  counter-increment: task-counter 1;
+  position: absolute;
+  left: -20px;
+  bottom: 0;
+  z-index: 1;
+}
+
+.task-todo button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+}
