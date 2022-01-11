@@ -101,3 +101,19 @@ input {
   color: white;
   font-size: 1rem;
 }
+
+/* Media queries to adjust fontsize for smaller screens */
+@media screen and (max-width: 780px) {
+  .wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    height: 100vh;
+  }
+  .task-todo {
+    font-size: 1.2rem;
+  }
+  .task-todo button {
+    font-size: 1rem;
+  }
+}
