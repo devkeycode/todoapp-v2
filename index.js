@@ -1,10 +1,16 @@
 const taskInput = document.getElementById("task-input");
 const addTaskBtn = document.getElementById("add-task-btn");
 const taskList = document.getElementById("task-list");
+const backdrop = document.getElementById("backdrop");
+const messageBox = document.getElementById("message-box");
+const messageBoxCloseBtn = document.getElementById("message-box-close-btn");
 
 /**
  * Attach listeners
  */
+
+backdrop.addEventListener("click", showMainApp);
+messageBoxCloseBtn.addEventListener("click", showMainApp);
 // addTaskBtn.onclick = runAddTaskHandler; //other way
 addTaskBtn.addEventListener("click", runAddTaskHandler);
 document.addEventListener("keypress", (e) => {
@@ -64,4 +70,9 @@ function runTaskDoneHandler(e) {
 
   //make focus back to taskInput
   taskInput.focus();
+}
+
+function showMainApp() {
+  backdrop.remove();
+  messageBox.remove();
 }

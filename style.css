@@ -102,6 +102,40 @@ input {
   font-size: 1rem;
 }
 
+/* Backdrop & MessageBox */
+#backdrop {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+#message-box {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: whitesmoke;
+  font-style: italic;
+  padding: 1rem;
+  width: 30rem;
+  z-index: 10;
+  position: fixed;
+  top: 25vh;
+  left: calc(50% - 15rem);
+}
+
+#message-box button {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  color: red;
+  font-size: 1.6rem;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+}
+
 /* Media queries to adjust fontsize for smaller screens */
 @media screen and (max-width: 780px) {
   .wrapper {
