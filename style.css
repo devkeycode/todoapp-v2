@@ -1,0 +1,36 @@
+/* General Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+h1 {
+  font-size: 2.5rem;
+  color: rgb(47, 12, 102);
+}
+input {
+  padding: 10px 5px;
+  outline: none;
+  border: none;
+  box-shadow: 5px 5px rgba(228, 120, 120, 0.5);
+}
+button {
+  cursor: pointer;
+}
+ol {
+  list-style: none;
+}
+
+/* Wrapper containing all the 2 sections */
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
