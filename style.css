@@ -28,10 +28,10 @@ ol {
   list-style: none;
 }
 
-/* Wrapper containing all the 2 sections */
+/* Wrapper containing all the 3 sections */
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   height: 100vh;
 }
 
@@ -100,6 +100,34 @@ input {
   border: none;
   color: white;
   font-size: 1rem;
+}
+
+/* Task Completed Section */
+
+#tasks-completed-section {
+  background-color: whitesmoke;
+  color: rgb(111, 47, 172);
+  text-align: center;
+}
+
+#task-list--completed {
+  counter-reset: task-counter--completed 0;
+}
+
+.task-todo--completed {
+  color: rgb(111, 47, 172);
+}
+.task-todo--completed::before {
+  content: counter(task-counter--completed);
+  counter-increment: task-counter--completed 1;
+  position: absolute;
+  left: -20px;
+  bottom: 0;
+  z-index: 1;
+}
+
+.task-todo--completed button {
+  color: rgb(135, 102, 211);
 }
 
 /* Backdrop & MessageBox */
