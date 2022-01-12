@@ -1,6 +1,7 @@
 const taskInput = document.getElementById("task-input");
 const addTaskBtn = document.getElementById("add-task-btn");
 const taskList = document.getElementById("task-list");
+const completedTaskList = document.getElementById("task-list--completed");
 const backdrop = document.getElementById("backdrop");
 const messageBox = document.getElementById("message-box");
 const messageBoxCloseBtn = document.getElementById("message-box-close-btn");
@@ -28,11 +29,15 @@ function runAddTaskHandler() {
     alert(
       "Please assign some task! A task with no target in mind is like an empty flask."
     );
+    //make focus back to taskInput
+    taskInput.focus();
     return;
   }
   //otherwise taskInput value is verified now so a new task element can be created
   const taskItem = document.createElement("li");
+  //populate and display new todo over the tasklist
   populateNewTaskElement(taskItem);
+  //reset input text after new todo get displayed in the list
   resetTaskInput();
 }
 
@@ -40,10 +45,12 @@ function populateNewTaskElement(taskItem) {
   //create a label element
   const label = document.createElement("label");
   label.innerText = taskInput.value;
+
   //create a button element
   const button = document.createElement("button");
   button.innerText = "Mark As Done";
   button.addEventListener("click", runTaskDoneHandler);
+
   //append both as a child to taskItem li element
   taskItem.appendChild(label);
   taskItem.appendChild(button);
@@ -65,11 +72,39 @@ function runTaskDoneHandler(e) {
   //get parent node from e.target
   const taskItem = e.target.parentNode;
 
+  // a new function added, so to copy the content from this taskinline todo list to completed todo list
+  moveTaskToCompletedTodo(taskItem);
+
   //remove the element
   taskItem.remove();
 
   //make focus back to taskInput
   taskInput.focus();
+}
+
+function moveTaskToCompletedTodo(taskItem) {
+  const clonedTaskItem = taskItem.cloneNode(true);
+  clonedTaskItem.classList.add("task-todo--completed");
+  // console.log(clonedTaskItem.childNodes); //return the nodelist array [nodelist]
+  // console.log(clonedTaskItem.childNodes[1].innerText === "✔");
+
+  //access the button and set its text to tick
+  const button = clonedTaskItem.childNodes[1];
+  button.innerHTML = "&#x2714"; //html entity for tick
+
+  /* no need to remove eventlistener since clonenode doesnt copy eventliteners
+  // button.removeEventListener("click", () => {
+  //   return;
+  // });
+
+  // button.disabled = true;
+  // button.setAttribute(disabled);
+
+  // console.log(clonedTaskItem.childNodes[1]);
+  */
+
+  //now append clonedTaskItem to completedTaskList
+  completedTaskList.appendChild(clonedTaskItem);
 }
 
 function showMainApp() {
